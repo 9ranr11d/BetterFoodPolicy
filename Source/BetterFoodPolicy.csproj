@@ -3,8 +3,8 @@
     <TargetFramework>net48</TargetFramework>
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
-    <AssemblyName>FoodCarryPolicy</AssemblyName>
-    <RootNamespace>FoodCarryPolicy</RootNamespace>
+    <AssemblyName>BetterFoodPolicy</AssemblyName>
+    <RootNamespace>BetterFoodPolicy</RootNamespace>
     <OutputPath>../1.6/Assemblies/</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <DebugType>none</DebugType>

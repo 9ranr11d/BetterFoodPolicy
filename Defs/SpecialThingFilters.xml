@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SpecialThingFilterDef>
+    <defName>BFP_AllowSuspectFood</defName>
+    <label>suspect food</label>
+    <description>Food that was made in the same batch as food that caused food poisoning.</description>
+    <parentCategory>Foods</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>bfpAllowSuspectFood</saveKey>
+    <workerClass>BetterFoodPolicy.SpecialThingFilterWorker_SuspectFood</workerClass>
+  </SpecialThingFilterDef>
+
+  <SpecialThingFilterDef>
+    <defName>BFP_NotSuspectFood</defName>
+    <label>not suspect food</label>
+    <description>Edible food that is not marked as suspect.</description>
+    <parentCategory>Foods</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <configurable>false</configurable>
+    <saveKey>bfpNotSuspectFood</saveKey>
+    <workerClass>BetterFoodPolicy.SpecialThingFilterWorker_NotSuspectFood</workerClass>
+  </SpecialThingFilterDef>
+</Defs>

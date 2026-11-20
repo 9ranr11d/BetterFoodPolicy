@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BFP_BurnSuspectFood.label>식중독 음식 태우기</BFP_BurnSuspectFood.label>
+  <BFP_BurnSuspectFood.description>식중독을 일으킨 음식을 태워 완전히 없앱니다.</BFP_BurnSuspectFood.description>
+  <BFP_BurnSuspectFood.jobString>식중독 음식을 태우는 중.</BFP_BurnSuspectFood.jobString>
+</LanguageData>

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using RimWorld;
 using Verse;
 
-namespace FoodCarryPolicy
+namespace BetterFoodPolicy
 {
     // 음식 정책 하나에 딸린 "소지 개수" 목록. FoodPolicy 에 필드를 못 붙이니 ConditionalWeakTable 로 매단다.
     public class FoodCarryData

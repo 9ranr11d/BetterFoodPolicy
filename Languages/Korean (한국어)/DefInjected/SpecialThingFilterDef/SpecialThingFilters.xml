@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BFP_AllowSuspectFood.label>식중독 발생 음식</BFP_AllowSuspectFood.label>
+  <BFP_AllowSuspectFood.description>식중독을 일으킨 음식과 같은 묶음으로 만든 음식입니다.</BFP_AllowSuspectFood.description>
+  <BFP_NotSuspectFood.label>식중독 발생 아닌 음식</BFP_NotSuspectFood.label>
+  <BFP_NotSuspectFood.description>식중독 발생 음식으로 표시되지 않은 먹을 수 있는 음식입니다.</BFP_NotSuspectFood.description>
+</LanguageData>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RecipeDef>
+    <defName>BFP_BurnSuspectFood</defName>
+    <label>burn suspect food</label>
+    <description>Burn food that caused food poisoning to completely destroy it.</description>
+    <jobString>Burning suspect food.</jobString>
+    <workAmount>60</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <requiredGiverWorkType>Hauling</requiredGiverWorkType>
+    <effectWorking>BurnDrug</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <ignoreIngredientCountTakeEntireStacks>true</ignoreIngredientCountTakeEntireStacks>
+    <recipeUsers>
+      <li>ElectricCrematorium</li>
+      <li>Campfire</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Foods</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>BFP_NotSuspectFood</li>
+          </specialFiltersToDisallow>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Foods</li>
+      </categories>
+      <specialFiltersToDisallow>
+        <li>BFP_NotSuspectFood</li>
+      </specialFiltersToDisallow>
+    </fixedIngredientFilter>
+  </RecipeDef>
+</Defs>

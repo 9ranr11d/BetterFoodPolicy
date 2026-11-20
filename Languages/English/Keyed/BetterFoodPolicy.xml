@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BFP_CarryHeader>Carry in inventory</BFP_CarryHeader>
+  <BFP_CarryTip>Pawns using this policy keep this many of each food in their inventory. This is independent of whether they are allowed to eat it.</BFP_CarryTip>
+  <BFP_AddFood>Add food...</BFP_AddFood>
+  <BFP_NoCarry>No food set to carry.</BFP_NoCarry>
+  <BFP_PickFoodTitle>Choose food to carry</BFP_PickFoodTitle>
+  <BFP_OwnedOnly>Only food in stock</BFP_OwnedOnly>
+  <BFP_NoMatch>No matching food.</BFP_NoMatch>
+  <BFP_SettingCarry>Enable food carry amounts</BFP_SettingCarry>
+  <BFP_SettingReveal>Reveal food that caused food poisoning</BFP_SettingReveal>
+  <BFP_SuspectInspect>Food poisoning broke out from this food. Nobody will eat it.</BFP_SuspectInspect>
+  <BFP_SuspectLetterLabel>Food poisoning source</BFP_SuspectLetterLabel>
+  <BFP_SuspectLetterText>{0} ate {1} and got food poisoning. {2} more {1} made together were found and marked. Marked food will not be eaten, and can be destroyed with 'burn suspect food' at a crematorium or campfire.</BFP_SuspectLetterText>
+</LanguageData>

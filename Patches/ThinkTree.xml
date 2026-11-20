@@ -4,7 +4,7 @@
     <xpath>Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]//li[@Class="JobGiver_MoveDrugsToInventory"]</xpath>
     <order>Append</order>
     <value>
-      <li Class="FoodCarryPolicy.JobGiver_MoveFoodToInventory"/>
+      <li Class="BetterFoodPolicy.JobGiver_MoveFoodToInventory"/>
     </value>
   </Operation>
 </Patch>

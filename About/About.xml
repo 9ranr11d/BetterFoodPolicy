@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Food Carry Policy</name>
+  <name>Better Food Policy</name>
   <author>9ranr11d</author>
-  <packageId>9ranr11d.FoodCarryPolicy</packageId>
+  <packageId>9ranr11d.BetterFoodPolicy</packageId>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
@@ -16,5 +16,9 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Adds a "carry" amount per food to food policies, like the drug policy's carry column. Pawns keep that many of the food in their inventory, whether or not the policy allows them to eat it.</description>
+  <description>Better quality-of-life tools for food policies and food poisoning.
+
+Features:
+- Carry amount per food in food policies, like the drug policy's carry column.
+- Food poisoning source reveal: when someone gets food poisoning, only the food made in the same batch is marked, left uneaten, and can be burned.</description>
 </ModMetaData>

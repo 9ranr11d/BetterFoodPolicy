@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BFP_CarryHeader>소지품에 보관</BFP_CarryHeader>
+  <BFP_CarryTip>이 정책을 쓰는 정착민은 각 음식을 지정한 개수만큼 소지품에 넣고 다닙니다. 먹기 허용 여부와는 상관없습니다.</BFP_CarryTip>
+  <BFP_AddFood>음식 추가...</BFP_AddFood>
+  <BFP_NoCarry>소지할 음식이 없습니다.</BFP_NoCarry>
+  <BFP_PickFoodTitle>소지할 음식 선택</BFP_PickFoodTitle>
+  <BFP_OwnedOnly>보유 중인 음식만</BFP_OwnedOnly>
+  <BFP_NoMatch>해당하는 음식이 없습니다.</BFP_NoMatch>
+  <BFP_SettingCarry>음식 소지 수량 사용</BFP_SettingCarry>
+  <BFP_SettingReveal>식중독 발생 음식 드러내기</BFP_SettingReveal>
+  <BFP_SuspectInspect>식중독이 발생한 음식입니다. 먹지 않습니다.</BFP_SuspectInspect>
+  <BFP_SuspectLetterLabel>식중독 발생 음식</BFP_SuspectLetterLabel>
+  <BFP_SuspectLetterText>{0}이(가) {1}을(를) 먹고 식중독에 걸렸습니다. 같이 만든 {1} {2}개를 찾아 표시했습니다. 표시된 음식은 아무도 먹지 않으며, 화장터·모닥불의 '식중독 음식 태우기'로 없앨 수 있습니다.</BFP_SuspectLetterText>
+</LanguageData>

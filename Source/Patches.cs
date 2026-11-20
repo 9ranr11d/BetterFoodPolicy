@@ -4,14 +4,14 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace FoodCarryPolicy
+namespace BetterFoodPolicy
 {
     [StaticConstructorOnStartup]
     public static class HarmonyInit
     {
         static HarmonyInit()
         {
-            new Harmony("9ranr11d.FoodCarryPolicy").PatchAll();
+            new Harmony("9ranr11d.BetterFoodPolicy").PatchAll();
         }
     }
 
@@ -29,6 +29,7 @@ namespace FoodCarryPolicy
                 defs = new List<ThingDef>(data.counts.Keys);
                 counts = new List<int>(data.counts.Values);
             }
+            // 기존 세이브 호환을 위해 옛 키 유지
             Scribe_Collections.Look(ref defs, "fcp_carryDefs", LookMode.Def);
             Scribe_Collections.Look(ref counts, "fcp_carryCounts", LookMode.Value);
             if (Scribe.mode == LoadSaveMode.LoadingVars)

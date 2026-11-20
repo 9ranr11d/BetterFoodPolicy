@@ -3,13 +3,13 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace FoodCarryPolicy
+namespace BetterFoodPolicy
 {
     // "음식 추가..." 선택 창. 음식 종류가 수백 개라 플로팅 메뉴 대신 검색 + 보유 중 필터 + 스크롤 목록을 쓴다.
     public class Dialog_PickCarryFood : Window
     {
         private const float RowHeight = 28f;
-        private const string SearchControl = "FCP_Search";
+        private const string SearchControl = "BFP_Search";
 
         private readonly FoodCarryData data;
         private readonly Dictionary<ThingDef, int> ownedCounts = new Dictionary<ThingDef, int>();
@@ -42,7 +42,7 @@ namespace FoodCarryPolicy
         public override void DoWindowContents(Rect inRect)
         {
             Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 32f), "FCP_PickFoodTitle".Translate());
+            Widgets.Label(new Rect(inRect.x, inRect.y, inRect.width, 32f), "BFP_PickFoodTitle".Translate());
             Text.Font = GameFont.Small;
 
             Rect searchRect = new Rect(inRect.x, inRect.y + 38f, inRect.width, 28f);
@@ -55,7 +55,7 @@ namespace FoodCarryPolicy
             }
 
             Rect ownedRect = new Rect(inRect.x, searchRect.yMax + 6f, inRect.width, 24f);
-            Widgets.CheckboxLabeled(ownedRect, "FCP_OwnedOnly".Translate(), ref ownedOnly);
+            Widgets.CheckboxLabeled(ownedRect, "BFP_OwnedOnly".Translate(), ref ownedOnly);
 
             Rect listRect = new Rect(inRect.x, ownedRect.yMax + 6f, inRect.width, inRect.yMax - ownedRect.yMax - 6f);
             Widgets.DrawMenuSection(listRect);
@@ -73,7 +73,7 @@ namespace FoodCarryPolicy
             {
                 GUI.color = Color.grey;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(listRect, "FCP_NoMatch".Translate());
+                Widgets.Label(listRect, "BFP_NoMatch".Translate());
                 Text.Anchor = TextAnchor.UpperLeft;
                 GUI.color = Color.white;
                 return;

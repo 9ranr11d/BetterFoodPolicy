@@ -5,7 +5,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace FoodCarryPolicy
+namespace BetterFoodPolicy
 {
     // 음식 정책 창을 넓히고 오른쪽에 "소지품에 보관" 패널을 붙인다.
     [HarmonyPatch(typeof(Dialog_ManageFoodPolicies), nameof(Dialog_ManageFoodPolicies.InitialSize), MethodType.Getter)]
@@ -60,12 +60,12 @@ namespace FoodCarryPolicy
 
             Rect header = new Rect(rect.x, rect.y, rect.width, 30f);
             Text.Font = GameFont.Medium;
-            Widgets.Label(header, "FCP_CarryHeader".Translate());
+            Widgets.Label(header, "BFP_CarryHeader".Translate());
             Text.Font = GameFont.Small;
-            TooltipHandler.TipRegion(header, "FCP_CarryTip".Translate());
+            TooltipHandler.TipRegion(header, "BFP_CarryTip".Translate());
 
             Rect addButton = new Rect(rect.x, header.yMax + 4f, rect.width, 30f);
-            if (Widgets.ButtonText(addButton, "FCP_AddFood".Translate()))
+            if (Widgets.ButtonText(addButton, "BFP_AddFood".Translate()))
             {
                 Find.WindowStack.Add(new Dialog_PickCarryFood(data));
             }
@@ -77,7 +77,7 @@ namespace FoodCarryPolicy
             {
                 GUI.color = Color.grey;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(listRect, "FCP_NoCarry".Translate());
+                Widgets.Label(listRect, "BFP_NoCarry".Translate());
                 Text.Anchor = TextAnchor.UpperLeft;
                 GUI.color = Color.white;
                 return;
