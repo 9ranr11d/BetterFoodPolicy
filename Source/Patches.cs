@@ -109,6 +109,12 @@ namespace BetterFoodPolicy
             }
             foreach (Thing item in container)
             {
+                if (SuspectFoodUtil.IsRevealed(item))
+                {
+                    // 식중독 발생 음식은 소지 지정분이어도 남기지 않는다(Pick Up And Haul 등으로 주워 온 경우)
+                    __result = new ThingCount(item, item.stackCount);
+                    return false;
+                }
                 int keepCount = keep.TryGetValue(item.def, out int n) ? n : 0;
                 if (pawn.IsColonist && item.def.IsNutritionGivingIngestible && !item.def.IsDrug && JobGiver_PackFood.IsGoodPackableFoodFor(item, pawn, checkMass: false))
                 {
@@ -144,11 +150,11 @@ namespace BetterFoodPolicy
         public static bool Prefix(Pawn pawn, Thing thing)
         {
             int carry = FoodCarry.CarryCount(pawn, thing.def);
-            if (carry <= 0)
+            if (carry <= 0 || SuspectFoodUtil.IsRevealed(thing))
             {
                 return true;
             }
-            int excess = Mathf.Min(thing.stackCount, pawn.inventory.innerContainer.TotalStackCountOfDef(thing.def) - carry);
+            int excess = Mathf.Min(thing.stackCount, SuspectFoodUtil.CleanCount(pawn.inventory.innerContainer, thing.def) - carry);
             if (excess > 0)
             {
                 pawn.inventory.innerContainer.TryDrop(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near, excess, out Thing _);

@@ -32,6 +32,10 @@ namespace BetterFoodPolicy
 
         public override float GetPriority(Pawn pawn)
         {
+            if (DropSuspectFood(pawn))
+            {
+                return 0f;
+            }
             if (!BfpMod.Settings.carryEnabled)
             {
                 return 0f;
@@ -43,7 +47,7 @@ namespace BetterFoodPolicy
             }
             foreach (var kv in data.counts)
             {
-                if (pawn.inventory.innerContainer.TotalStackCountOfDef(kv.Key) < kv.Value && !InCooldown(pawn, kv.Key))
+                if (SuspectFoodUtil.CleanCount(pawn.inventory.innerContainer, kv.Key) < kv.Value && !InCooldown(pawn, kv.Key))
                 {
                     return 7.5f;
                 }
@@ -64,7 +68,7 @@ namespace BetterFoodPolicy
             }
             foreach (var kv in data.counts)
             {
-                int num = kv.Value - pawn.inventory.innerContainer.TotalStackCountOfDef(kv.Key);
+                int num = kv.Value - SuspectFoodUtil.CleanCount(pawn.inventory.innerContainer, kv.Key);
                 if (num <= 0 || InCooldown(pawn, kv.Key))
                 {
                     continue;
@@ -90,6 +94,26 @@ namespace BetterFoodPolicy
             }
             return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(def), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f,
                 (Thing x) => !x.IsForbidden(pawn) && x.IngestibleNow && pawn.CanReserve(x, 10, Mathf.Min(x.stackCount, desired)));
+        }
+
+        // 식중독 발생 음식을 들고 있으면 그 자리에 내려놓는다(드러날 때 못 내려놨거나 다른 모드가 주워 온 경우)
+        private static bool DropSuspectFood(Pawn pawn)
+        {
+            if (BfpMod.Settings == null || !BfpMod.Settings.revealEnabled || pawn.inventory == null || !pawn.Spawned)
+            {
+                return false;
+            }
+            ThingOwner owner = pawn.inventory.innerContainer;
+            bool dropped = false;
+            for (int i = owner.Count - 1; i >= 0; i--)
+            {
+                Thing t = owner[i];
+                if (SuspectFoodUtil.IsRevealed(t))
+                {
+                    dropped |= owner.TryDrop(t, pawn.Position, pawn.Map, ThingPlaceMode.Near, out Thing _);
+                }
+            }
+            return dropped;
         }
     }
 }
