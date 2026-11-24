@@ -148,12 +148,31 @@ namespace BetterFoodPolicy
     {
         static SuspectFoodInit()
         {
+            Inject();
+        }
+
+        // 멱등: 이미 붙은 def 는 건너뛴다. 언어 변경처럼 def 를 전부 새로 읽는 경우(PlayDataLoader.DoPlayLoad)
+        // 새 def 에는 comp 가 없으므로 그때도 다시 불러야 기능이 유지된다.
+        public static void Inject()
+        {
             foreach (ThingDef def in DefDatabase<ThingDef>.AllDefsListForReading)
             {
                 if (def.comps == null || def.GetCompProperties<CompProperties_FoodPoisonable>() == null) continue;
                 if (def.GetCompProperties<CompProperties_SuspectFood>() != null) continue;
                 def.comps.Add(new CompProperties_SuspectFood());
             }
+        }
+    }
+
+    // def 재로드 경로: ClearAllPlayData → LoadAllPlayData → DoPlayLoad. DoPlayLoad 의 동기 구간 끝은
+    // def ResolveReferences·암시 def 생성 뒤이고 Thing 이 만들어지기 전(세이브 로드·맵 생성은 이후)이다.
+    // 첫 로드는 이 패치가 걸리기 전이라 위 static ctor 가 맡는다.
+    [HarmonyPatch(typeof(PlayDataLoader), "DoPlayLoad")]
+    public static class Patch_PlayDataLoader_DoPlayLoad
+    {
+        public static void Postfix()
+        {
+            SuspectFoodInit.Inject();
         }
     }
 

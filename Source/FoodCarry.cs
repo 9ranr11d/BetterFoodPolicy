@@ -41,7 +41,10 @@ namespace BetterFoodPolicy
         {
             get
             {
-                if (carriableFoods == null)
+                // 언어 변경 등으로 림월드가 def 를 전부 새로 읽으면 캐시가 옛 ThingDef 를 가리킨다.
+                // 첫 항목이 지금 DefDatabase 의 것과 같은 객체인지만 봐서(조회 1번) 낡았으면 다시 만든다.
+                if (carriableFoods == null
+                    || (carriableFoods.Count > 0 && DefDatabase<ThingDef>.GetNamedSilentFail(carriableFoods[0].defName) != carriableFoods[0]))
                 {
                     carriableFoods = DefDatabase<ThingDef>.AllDefs
                         .Where(d => d.category == ThingCategory.Item && d.IsNutritionGivingIngestible && !d.IsDrug && !d.IsCorpse)
